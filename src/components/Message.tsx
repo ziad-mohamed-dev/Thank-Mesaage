@@ -1,17 +1,15 @@
 import { useRef, useState } from "react";
-import { NamesReducerState } from "../types/namesReducerTypes";
 import { renderMessages } from "../utils/renderMessages";
+import Button from "./Button";
+import { useNamesContext } from "../hooks/useNamesContext";
 
-interface MessageProps {
-	names: NamesReducerState;
-}
-
-const Message = ({ names }: MessageProps) => {
+const Message = () => {
 	const [copiedPopup, setCopiedPopup] = useState(false);
 	const pRef = useRef<HTMLParagraphElement>(null);
 	const timeoutRef = useRef<number | null>(null);
+	const { names } = useNamesContext();
 
-	const handelCopyMessage = () => {
+	const handleCopyMessage = () => {
 		navigator.clipboard.writeText(pRef.current!.innerText);
 
 		setCopiedPopup(true);
@@ -34,12 +32,9 @@ const Message = ({ names }: MessageProps) => {
 			>
 				{renderMessages(names)}
 			</p>
-			<button
-				onClick={handelCopyMessage}
-				className="btn bg-btn hover:bg-darker-btn"
-			>
+			<Button onClick={handleCopyMessage} bg="btn">
 				نسخ الرساله
-			</button>
+			</Button>
 			<div
 				style={{
 					transform: copiedPopup

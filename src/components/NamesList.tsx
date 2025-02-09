@@ -1,18 +1,12 @@
-import { ActionDispatch } from "react";
-import {
-	NamesReducerActions,
-	NamesReducerState,
-} from "../types/namesReducerTypes";
 import NameElement from "./NameElement";
+import Button from "./Button";
+import { useNamesContext } from "../hooks/useNamesContext";
 
-interface NamesListProps {
-	names: NamesReducerState;
-	dispatch: ActionDispatch<[NamesReducerActions]>;
-}
+const NamesList = () => {
+	const { names, dispatch } = useNamesContext();
 
-const NamesList = ({ names, dispatch }: NamesListProps) => {
-	const handelDeleteAll = () => {
-		dispatch({ type: "DELETE ALL" });
+	const handleDeleteAll = () => {
+		dispatch({ type: "DELETE_ALL" });
 	};
 
 	return (
@@ -21,16 +15,13 @@ const NamesList = ({ names, dispatch }: NamesListProps) => {
 				قائمه الاسماء
 			</h1>
 			<ul className="my-4 space-y-2">
-				{names.map((name, i) => (
-					<NameElement name={name} key={i} dispatch={dispatch} />
+				{names.map((name) => (
+					<NameElement name={name} key={name} dispatch={dispatch} />
 				))}
 			</ul>
-			<button
-				className="btn bg-delete-btn hover:bg-darker-delete-btn"
-				onClick={handelDeleteAll}
-			>
+			<Button onClick={handleDeleteAll} bg="delete-btn">
 				مسح الكل
-			</button>
+			</Button>
 		</div>
 	);
 };

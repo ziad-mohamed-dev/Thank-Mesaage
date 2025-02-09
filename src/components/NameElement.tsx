@@ -1,15 +1,15 @@
-import { ActionDispatch } from "react";
+import { Dispatch } from "react";
 import { FaTrash } from "react-icons/fa";
 import { NamesReducerActions } from "../types/namesReducerTypes";
 
 interface NameElementProps {
 	name: string;
-	dispatch: ActionDispatch<[NamesReducerActions]>;
+	dispatch: Dispatch<NamesReducerActions>;
 }
 
 const NameElement = ({ name, dispatch }: NameElementProps) => {
-	const handelDeleteOne = () => {
-		dispatch({ type: "DELETE ONE", name });
+	const handleDeleteOne = () => {
+		dispatch({ type: "DELETE_ONE", name });
 	};
 
 	return (
@@ -19,7 +19,7 @@ const NameElement = ({ name, dispatch }: NameElementProps) => {
 			</span>
 			<FaTrash
 				className="text-delete-btn hover:text-darker-delete-btn text-lg cursor-pointer transition"
-				onClick={handelDeleteOne}
+				onClick={handleDeleteOne}
 			/>
 		</div>
 	);
