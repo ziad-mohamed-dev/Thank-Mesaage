@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+	--font-inter: "Inter", serif;
+	--color-primary-bg: #f5e6cc;
+	--color-primary-text: #4a403a;
+	--color-input-border: #8d6e63;
+	--color-name-box: #d6bfa7;
+	--color-names-list: #e8d3c1;
+	--color-delete-btn: #ff4d4d;
+	--color-darker-delete-btn: #c10000;
+	--color-btn: #8d6e63;
+	--color-darker-btn: #6d4c41;
+	--color-message-bg: #504138;
+}
+
+@layer components {
+	.btn {
+		@apply transition cursor-pointer text-white py-2 px-4 rounded-full font-semibold;
+	}
+}
+
+*::-webkit-scrollbar {
+	width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: var(--color-btn);
+	cursor: default;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background: var(--color-darker-btn);
+}
