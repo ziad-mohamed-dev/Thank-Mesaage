@@ -19,7 +19,7 @@ const NamesList = () => {
 					<NameElement name={name} key={name} dispatch={dispatch} />
 				))}
 			</ul>
-			<Button onClick={handleDeleteAll} bg="delete-btn">
+			<Button onClick={handleDeleteAll} className="bg-delete-btn">
 				مسح الكل
 			</Button>
 		</div>

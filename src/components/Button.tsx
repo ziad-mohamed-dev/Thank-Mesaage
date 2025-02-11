@@ -3,15 +3,12 @@ import { ReactNode } from "react";
 interface ButtonProps {
 	children: ReactNode;
 	onClick?: () => void;
-	bg: string;
+	className: string;
 }
 
-const Button = ({ children, onClick, bg }: ButtonProps) => {
+const Button = ({ children, onClick, className }: ButtonProps) => {
 	return (
-		<button
-			className={`btn bg-${bg} hover:bg-darker-${bg}`}
-			onClick={onClick}
-		>
+		<button className={`btn ${className}`} onClick={onClick}>
 			{children}
 		</button>
 	);

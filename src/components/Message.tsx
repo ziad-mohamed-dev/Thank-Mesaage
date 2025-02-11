@@ -32,7 +32,7 @@ const Message = () => {
 			>
 				{renderMessages(names)}
 			</p>
-			<Button onClick={handleCopyMessage} bg="btn">
+			<Button onClick={handleCopyMessage} className="bg-btn">
 				نسخ الرساله
 			</Button>
 			<div
